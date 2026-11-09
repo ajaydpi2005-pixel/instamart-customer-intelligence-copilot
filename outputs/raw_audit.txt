@@ -1,0 +1,91 @@
+
+============================================================
+CUSTOMERS DATA AUDIT
+============================================================
+
+Shape (rows, columns):
+(1200, 5)
+
+Data types:
+customer_id     object
+city            object
+signup_date     object
+age            float64
+gender          object
+dtype: object
+
+Missing values:
+             missing_count  missing_percentage
+customer_id              0                0.00
+city                     0                0.00
+signup_date              0                0.00
+age                     61                5.08
+gender                  30                2.50
+
+============================================================
+PRODUCTS DATA AUDIT
+============================================================
+
+Shape (rows, columns):
+(40, 4)
+
+Data types:
+product_id      object
+product_name    object
+category        object
+price_inr        int64
+dtype: object
+
+Missing values:
+              missing_count  missing_percentage
+product_id                0                 0.0
+product_name              0                 0.0
+category                  0                 0.0
+price_inr                 0                 0.0
+
+============================================================
+ORDERS DATA AUDIT
+============================================================
+
+Shape (rows, columns):
+(13084, 9)
+
+Data types:
+order_id             object
+customer_id          object
+product_id           object
+quantity              int64
+order_ts             object
+status               object
+discount_pct          int64
+order_amount         object
+delivery_minutes    float64
+dtype: object
+
+Missing values:
+                  missing_count  missing_percentage
+order_id                      0                0.00
+customer_id                   0                0.00
+product_id                    0                0.00
+quantity                      0                0.00
+order_ts                      0                0.00
+status                        0                0.00
+discount_pct                  0                0.00
+order_amount                 53                0.41
+delivery_minutes           2541               19.42
+
+============================================================
+SPECIFIC AUDIT CHECKPOINTS
+============================================================
+Raw orders rows: 13084
+Exact duplicate order rows: 119
+Pending order rows: 656
+Distinct order IDs: 12309
+Non-numeric order amounts: 120
+Negative delivery minutes: 106
+Blank delivery minutes: 2541
+Blank customer ages: 61
+Customer ages outside 10-100: 6
+Distinct raw city spellings: 24
+Distinct non-blank gender spellings: 10
+Blank customer genders: 30

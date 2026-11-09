@@ -1,0 +1,102 @@
+{
+  "redaction": {
+    "emails": 55,
+    "phones": 91,
+    "order_ids": 132,
+    "total": 278
+  },
+  "benchmarks": {
+    "zero_shot": {
+      "status_counts": {
+        "classified_json": 135,
+        "skipped_empty": 4,
+        "flagged_long": 4,
+        "classified_keyword": 12,
+        "flagged_invalid_output": 9
+      },
+      "classified_count": 147,
+      "accuracy": 0.8571,
+      "total_tokens": 7060,
+      "tokens_per_classified_ticket": 48.03,
+      "confusion_matrix_labels": [
+        "billing",
+        "delivery",
+        "fraud",
+        "technical"
+      ],
+      "confusion_matrix": [
+        [
+          38,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          36,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          23,
+          0
+        ],
+        [
+          10,
+          0,
+          0,
+          29
+        ]
+      ]
+    },
+    "few_shot": {
+      "status_counts": {
+        "classified_json": 135,
+        "skipped_empty": 4,
+        "flagged_long": 4,
+        "classified_keyword": 12,
+        "flagged_invalid_output": 9
+      },
+      "classified_count": 147,
+      "accuracy": 1.0,
+      "total_tokens": 19852,
+      "tokens_per_classified_ticket": 135.05
+    }
+  },
+  "budget_demo": {
+    "budget_limit": 6000,
+    "accumulated_tokens_at_end": 6015,
+    "exhausted_ticket_count": 23,
+    "status_distribution": {
+      "classified_json": 116,
+      "budget_exhausted": 23,
+      "classified_keyword": 10,
+      "flagged_invalid_output": 7,
+      "skipped_empty": 4,
+      "flagged_long": 4
+    }
+  },
+  "final_few_shot_triage": {
+    "total_tickets": 164,
+    "total_tokens_used": 19852,
+    "status_distribution": {
+      "classified_json": 135,
+      "classified_keyword": 12,
+      "flagged_invalid_output": 9,
+      "skipped_empty": 4,
+      "flagged_long": 4
+    },
+    "route_distribution": {
+      "support_queue": 102,
+      "security_team": 34,
+      "human_review": 17,
+      "premium_desk": 11
+    },
+    "priority_distribution": {
+      "NORMAL": 119,
+      "HIGH": 45
+    }
+  }
+}

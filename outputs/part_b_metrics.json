@@ -1,0 +1,258 @@
+{
+  "rfm": {
+    "customer_count": 1175,
+    "median_recency": 19.0,
+    "min_recency": 0,
+    "max_recency": 180,
+    "mean_frequency": 9.46,
+    "max_frequency": 33,
+    "mean_monetary": 2552.06,
+    "max_monetary": 14766.55
+  },
+  "kmeans_eval": {
+    "K2": {
+      "inertia": 1820.8,
+      "silhouette": 0.465
+    },
+    "K3": {
+      "inertia": 1268.2,
+      "silhouette": 0.445
+    },
+    "K4": {
+      "inertia": 743.1,
+      "silhouette": 0.526
+    },
+    "K5": {
+      "inertia": 617.4,
+      "silhouette": 0.48
+    },
+    "K6": {
+      "inertia": 503.2,
+      "silhouette": 0.482
+    },
+    "K7": {
+      "inertia": 408.5,
+      "silhouette": 0.416
+    },
+    "K8": {
+      "inertia": 366.5,
+      "silhouette": 0.412
+    }
+  },
+  "pca_explained_variance_ratio": [
+    0.634,
+    0.218
+  ],
+  "cluster_profiles": [
+    {
+      "segment_id": 0,
+      "segment_name": "Occasional Shoppers",
+      "is_premium": false,
+      "count": 436,
+      "pct_of_customers": 37.11,
+      "mean_recency": 28.9,
+      "median_recency": 25.5,
+      "mean_frequency": 3.77,
+      "median_frequency": 3.0,
+      "mean_monetary": 1057.62,
+      "median_monetary": 701.73,
+      "recommended_action": "Category discovery nudges, time-limited weekend discounts"
+    },
+    {
+      "segment_id": 1,
+      "segment_name": "Premium High-Value",
+      "is_premium": true,
+      "count": 138,
+      "pct_of_customers": 11.74,
+      "mean_recency": 24.1,
+      "median_recency": 19.0,
+      "mean_frequency": 6.77,
+      "median_frequency": 7.0,
+      "mean_monetary": 7129.7,
+      "median_monetary": 6610.02,
+      "recommended_action": "VIP concierge, personalized exclusive promotions, priority delivery"
+    },
+    {
+      "segment_id": 2,
+      "segment_name": "Loyal Frequent",
+      "is_premium": false,
+      "count": 419,
+      "pct_of_customers": 35.66,
+      "mean_recency": 8.8,
+      "median_recency": 6.0,
+      "mean_frequency": 19.4,
+      "median_frequency": 19.0,
+      "mean_monetary": 3410.02,
+      "median_monetary": 3303.2,
+      "recommended_action": "Loyalty milestone rewards, basket-building cross-sells, referral bonuses"
+    },
+    {
+      "segment_id": 3,
+      "segment_name": "At-Risk / Dormant",
+      "is_premium": false,
+      "count": 182,
+      "pct_of_customers": 15.49,
+      "mean_recency": 109.0,
+      "median_recency": 103.5,
+      "mean_frequency": 2.2,
+      "median_frequency": 2.0,
+      "mean_monetary": 685.99,
+      "median_monetary": 354.5,
+      "recommended_action": "Reactivation vouchers, win-back surveys, push notifications"
+    }
+  ],
+  "lapse_model": {
+    "cutoff_date": "2025-09-01",
+    "cohort_size": 1156,
+    "lapsed_count": 443,
+    "lapsed_percentage": 38.32,
+    "train_rows": 924,
+    "test_rows": 232,
+    "train_scaler_frequency_mean": 8.1147,
+    "cohort_frequency_mean": 8.0285,
+    "baseline": {
+      "accuracy": 0.6164,
+      "f1": 0.0
+    },
+    "logistic_regression": {
+      "best_C": 100,
+      "best_cv_f1": 0.6506,
+      "test_accuracy": 0.7284,
+      "test_precision": 0.6444,
+      "test_recall": 0.6517,
+      "test_f1": 0.648,
+      "confusion_matrix": [
+        [
+          111,
+          32
+        ],
+        [
+          31,
+          58
+        ]
+      ],
+      "selected_coefficients": [
+        {
+          "feature": "recency",
+          "coefficient": 0.0396,
+          "sign": "positive (+)",
+          "interpretation": "Longer days since last order directly elevate the likelihood of churn."
+        },
+        {
+          "feature": "frequency",
+          "coefficient": -1.6982,
+          "sign": "negative (-)",
+          "interpretation": "Higher historical order cadence builds retention habits, significantly lowering lapse odds."
+        },
+        {
+          "feature": "avg_completed_delivery_time",
+          "coefficient": 0.0785,
+          "sign": "positive (+)",
+          "interpretation": "Slower delivery experiences accumulate customer frustration and increase lapse probability."
+        }
+      ]
+    },
+    "random_forest": {
+      "best_params": {
+        "clf__max_depth": 8,
+        "clf__min_samples_leaf": 10
+      },
+      "best_cv_f1": 0.6865,
+      "test_accuracy": 0.7241,
+      "test_precision": 0.6404,
+      "test_recall": 0.6404,
+      "test_f1": 0.6404,
+      "confusion_matrix": [
+        [
+          111,
+          32
+        ],
+        [
+          32,
+          57
+        ]
+      ],
+      "top5_feature_importances": [
+        {
+          "feature": "monetary",
+          "importance": 0.2778
+        },
+        {
+          "feature": "frequency",
+          "importance": 0.2768
+        },
+        {
+          "feature": "recency",
+          "importance": 0.1112
+        },
+        {
+          "feature": "avg_completed_delivery_time",
+          "importance": 0.0616
+        },
+        {
+          "feature": "avg_discount",
+          "importance": 0.0532
+        }
+      ]
+    },
+    "oversampled_logistic_regression": {
+      "test_precision": 0.5891,
+      "test_recall": 0.8539,
+      "test_f1": 0.6972
+    },
+    "selected_model": "RandomForestClassifier",
+    "retention_list_top10": [
+      {
+        "customer_id": "C0862",
+        "lapse_probability": 0.5304,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0060",
+        "lapse_probability": 0.4765,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C1008",
+        "lapse_probability": 0.4756,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0267",
+        "lapse_probability": 0.4753,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0133",
+        "lapse_probability": 0.4712,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0942",
+        "lapse_probability": 0.4688,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C1000",
+        "lapse_probability": 0.4654,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0553",
+        "lapse_probability": 0.4645,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C1112",
+        "lapse_probability": 0.462,
+        "actually_lapsed": 0
+      },
+      {
+        "customer_id": "C0565",
+        "lapse_probability": 0.4603,
+        "actually_lapsed": 1
+      }
+    ],
+    "premium_flag_caveat": "The Premium flag is derived from post-hoc whole-window RFM clustering (April to September 2025). It is used here for operational illustration to prioritize outreach, and is not a leakage-free feature inside the pre-cutoff predictive model."
+  }
+}
